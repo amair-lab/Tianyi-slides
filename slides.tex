@@ -1,0 +1,458 @@
+\documentclass[handout,t,aspectratio=1610]{beamer}
+\makeatletter
+\setbeamertemplate{algorithm}[numbered]
+\makeatother
+
+% ======================= Basics =======================
+\usepackage{pgfpages}
+\usepackage{xcolor}
+\usepackage{natbib}
+
+
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{bbm}
+\usepackage{calc}
+\usepackage{capt-of}
+\usepackage{geometry}
+\usepackage{blkarray}
+\usepackage{mathtools}
+
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{algpseudocode}
+
+% ======================= Theme =======================
+\usetheme{Berlin}
+\usecolortheme{dolphin}
+\useoutertheme{default}
+\setbeamertemplate{blocks}[rounded][shadow=false]
+
+
+
+
+% ======================= Color & highlight =======================
+\definecolor{lightpurple}{RGB}{242, 232, 255}
+\definecolor{lightblue}{RGB}{232, 240, 255}
+
+% For highlighting text
+\usepackage{soul}
+\usepackage{tcolorbox}
+\newcommand{\hlp}[1]{\colorbox{lightpurple}{#1}}
+\newcommand{\hlb}[1]{\colorbox{lightblue}{#1}}
+
+\newtcolorbox{pbox}{
+    enhanced,
+    colback=lightpurple,
+    boxrule=0pt,
+    sharp corners,
+    break=true,
+    frame empty,
+    left=2pt,
+    right=2pt,
+    top=2pt,
+    bottom=2pt,
+    parbox=false
+}
+
+\newtcolorbox{bluebox}{
+    enhanced,
+    colback=lightblue,
+    boxrule=0pt,
+    sharp corners,
+    break=true,
+    frame empty,
+    left=2pt,
+    right=2pt,
+    top=2pt,
+    bottom=2pt,
+    parbox=false
+}
+
+% For figures and caption
+\usepackage{caption}
+\usepackage{subcaption}
+
+% For slides settings
+\beamerdefaultoverlayspecification{<+->}
+\setbeamertemplate{subtitle}{}
+\setbeamertemplate{footline}{
+    \hfill\insertframenumber/\inserttotalframenumber
+    \hspace{1em}\vspace{1ex}
+}
+
+\AtBeginSection[]
+{
+    \begin{frame}
+        \frametitle{Outline}
+        \tableofcontents[currentsection]
+    \end{frame}
+}
+
+
+% #############################################################################
+% #############################################################################
+\title{Title}
+\author{Mellen Y. Pu}
+\date{\today}
+\titlegraphic{\includegraphics[width=4cm]{./common/logo}}
+% #############################################################################
+% #############################################################################
+\begin{document}
+
+\frame{\titlepage}
+
+\section[Outline]{}
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+
+
+% -----------------------------------------------------------------------------
+\section{Introduction}
+
+    % Single Image Frame
+    \begin{frame}{Single Image Example}
+        \begin{center}
+            \includegraphics[height=0.8\textheight]{example-image-a}
+
+            \vspace{0.5em}
+            {\small A high-resolution microscopy image showing cellular structure}
+        \end{center}
+
+        % Optional: Add brief explanation below
+        \vspace{0.5em}
+        \begin{itemize}
+            \item Key features are marked in different colors
+            \item Scale bar: 10 cm
+        \end{itemize}
+    \end{frame}
+
+    % Version with more vertical space for image
+    \begin{frame}{}
+        \vspace*{0.15cm}  % Adjust vertical space if needed
+        \begin{center}
+            \includegraphics[height=0.95\textheight]{example-image-a}
+        \end{center}
+    \end{frame}
+
+    % Side-by-Side with Annotations
+    \begin{frame}{Comparative Analysis}
+        \begin{columns}[T]
+            \begin{column}{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{example-image-a}
+
+                \vspace{0.3em}
+                {\small Control group}
+
+                \begin{itemize}
+                    \item Base measurement
+                    \item Standard conditions
+                \end{itemize}
+            \end{column}
+            \begin{column}{0.48\textwidth}
+                \centering
+                \includegraphics[width=\textwidth]{example-image-b}
+
+                \vspace{0.3em}
+                {\small Treatment group}
+
+                \begin{itemize}
+                    \item 35\% improvement
+                    \item Modified parameters
+                \end{itemize}
+            \end{column}
+        \end{columns}
+    \end{frame}
+
+    \begin{frame}{Background}
+        Recent studies ... The methodology proposed by \cite{zhang2024} demonstrates improved efficiency.
+    \end{frame}
+
+    \begin{frame}{Challenges}
+        Some thing here.
+    \end{frame}
+
+
+    \begin{frame}{Our Approach}
+        \begin{block}{Solution}
+            \begin{enumerate}
+                % Use this command if in previous page you counted something.
+                % \setcounter{enumi}{7}
+                \item
+            \end{enumerate}
+        \end{block}
+    \end{frame}
+
+
+    \begin{frame}{Contribution}
+        \begin{block}{}
+            \small
+            \begin{enumerate}
+                \item Summarize the contribution.
+            \end{enumerate}
+        \end{block}
+    \end{frame}
+
+
+% -----------------------------------------------------------------------------
+\section{Methodology}
+\begin{frame}{Framework}
+
+
+\end{frame}
+
+\begin{frame}[allowframebreaks]{Algorithm Template}
+   \begin{algorithm}[H]
+       \caption{Simple Template}
+       \begin{algorithmic}[1]
+            \FOR{i = 1 \TO n}
+                \STATE sum $\gets$ sum + i
+                \IF{sum $\nabla $ threshold}
+                    \STATE flag $\gets$ true    \textcolor{red}{\triangleright Comments. }
+                \ELSIF{sum = threshold}
+                    \STATE count $\gets$ count + 1
+                \ELSE
+                    \STATE flag $\gets$ false
+                \ENDIF
+            \ENDFOR
+            \WHILE{x $<$ 10}
+                \STATE x $\gets$ x + 1
+            \ENDWHILE
+            \RETURN result
+       \end{algorithmic}
+   \end{algorithm}
+\end{frame}
+
+
+% Alternative frame with dcases for equation cases
+\begin{frame}{Equation Cases with Explanations}
+    \[
+        |x| = \begin{dcases}
+            \underbrace{x}_{\text{when x = 0}}
+        \end{dcases}
+    \]
+
+    % Function definition with cases
+    \[
+        f(n) = \begin{dcases}
+            \underbrace{n/2}_{\text{even case}} & \text{if } n \text{ is even} \\[1ex]
+            \underbrace{3n + 1}_{\text{odd case}} & \text{if } n \text{ is odd}
+        \end{dcases}
+    \]
+\end{frame}
+
+\begin{frame}{Formula Explanation with Braces}
+    Example 1: Simple underbrace:
+    \[
+        f(x) = \underbrace{-\frac{1}{16}x^2}_{
+            \substack{\text{quadratic} \\ \text{term}}
+        } + \underbrace{4x}_{
+            \text{linear term}
+        } + \underbrace{7}_{\text{constant}}
+    \]
+
+    Example 2: Multiple levels of braces:
+    \[
+        E = \underbrace{
+            \underbrace{mc^2}_{\text{rest energy}} +
+            \underbrace{\frac{1}{2}mv^2}_{\text{kinetic energy}}
+        }_{\text{total energy}}
+    \]
+
+    Example 3: Combining over and under braces:
+    \[
+        \overbrace{
+            a + b + c
+        }^{\text{sum}} =
+        \underbrace{
+            \frac{(a+b+c)}{3}
+        }_{\text{average}} \times 3
+    \]
+
+\end{frame}
+
+
+\begin{frame}{Text Highlighting Examples}
+    \begin{pbox}
+    This is an example of a multi-line highlighted text block.
+    The highlighting continues seamlessly across line breaks,
+    making it perfect for emphasizing entire paragraphs or
+    long sections of text.
+    \end{pbox}
+
+    \vspace{1em}
+
+    Regular text with \hlp{highlighted words} in between. You can
+    highlight \hlb{specific terms} or \hlp{important concepts}
+    within a sentence. The highlighting can be used for
+    \hlb{individual words} or \hlp{short phrases}.
+
+    \vspace{1em}
+
+    \begin{bluebox}
+    Another example of multi-line highlighting, this time in
+    light blue. This approach is particularly useful when you
+    need to emphasize large blocks of text while maintaining
+    readability.
+    \end{bluebox}
+\end{frame}
+
+
+\begin{frame}{Mix Different Highlights}
+
+    Mix different highlights in the same paragraph: Here's some
+    text with \hlp{purple highlights} mixed with \hlb{blue highlights}
+    to emphasize different \hlp{concepts} or \hlb{ideas}.
+
+    % Example with justified text
+    \begin{bluebox}
+    \justifying
+    This is an example of justified text within a highlighted box.
+    The text will stretch to fill the width of the frame while
+    maintaining the highlight effect. This is particularly useful
+    for formal presentations where text alignment is important.
+    \end{bluebox}
+
+\end{frame}
+
+% Alternative frame showing different styles
+\begin{frame}{Advanced Highlighting Techniques}
+    % Custom width highlight box
+    \begin{tcolorbox}[
+        colback=lightpurple,
+        boxrule=0pt,
+        width=0.99\textwidth,
+        left=2pt,
+        right=2pt
+    ]
+    A narrower highlighted block that doesn't span
+    the full width of the frame.
+    \end{tcolorbox}
+
+    \vspace{1em}
+
+    % Inline mixed highlighting
+    This paragraph demonstrates how to \hlp{highlight specific terms}
+    while keeping the rest of the text normal. You can even
+    \hlb{nest different \hlp{highlight} colors} for emphasis.
+
+    \vspace{1em}
+
+    % List with highlights
+    \begin{itemize}
+        \item Point one with \hlp{highlighted terms}
+        \item \hlb{Entire point highlighted in blue}
+        \item Point three with \hlp{purple} and \hlb{blue} highlights
+    \end{itemize}
+
+    % Quote with highlight
+    \begin{bluebox}
+    \begin{quote}
+    A quoted text block with highlighting. Perfect for emphasizing
+    important quotes or references in your presentation.
+    \end{quote}
+    \end{bluebox}
+\end{frame}
+
+
+% -----------------------------------------------------------------------------
+\section{Experiments}
+\subsection{Main experiment (1 page in total)}
+\begin{frame}{Experiments}
+    \begin{enumerate}
+        \item Description of the main experiments.
+    \end{enumerate}
+
+\end{frame}
+
+
+
+\subsection{Ablation study (3 in total)}
+\begin{frame}{Part 1}
+    \begin{columns}[T]
+       \begin{column}{0.5\textwidth}
+           \begin{block}{Part 1}
+               \begin{enumerate}
+                   \item Items to be tested.
+               \end{enumerate}
+           \end{block}
+       \end{column}
+
+        \hfill
+
+       \begin{column}{0.5\textwidth}
+           \begin{center}
+               \includegraphics[width=\textwidth,height=0.7\textheight]{example-image}
+           \end{center}
+       \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+\begin{frame}{Part 2}
+    \begin{columns}[T]
+       \begin{column}{0.5\textwidth}
+           \begin{block}{Embedding methods}
+               \begin{enumerate}
+                    \item Items.
+               \end{enumerate}
+           \end{block}
+       \end{column}
+
+        \hfill
+
+       \begin{column}{0.5\textwidth}
+           \begin{center}
+               \includegraphics[width=\textwidth,height=0.7\textheight]{example-image}
+           \end{center}
+       \end{column}
+    \end{columns}
+
+\end{frame}
+
+
+
+\begin{frame}{Part 3}
+    Some other ablation experiments.
+\end{frame}
+
+
+
+
+% -----------------------------------------------------------------------------
+\section{Related Work}
+\subsection{Sub-title for another topic}
+\begin{frame}{Part 1}
+Formal academic review.
+
+\end{frame}
+
+
+
+\subsection{Sub-title for another topic}
+\begin{frame}{Part 2}
+
+
+\end{frame}
+
+
+% -----------------------------------------------------------------------------
+\section{Conclusion}
+\begin{frame}{Conclusion}
+
+
+\end{frame}
+
+\section{Reference}
+\begin{frame}[allowframebreaks]{References}
+
+\bibliography{slides}
+\bibliographystyle{apalike}
+
+\end{frame}
+
+\end{document}
